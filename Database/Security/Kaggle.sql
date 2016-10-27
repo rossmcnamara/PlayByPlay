@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Kaggle]
+    AUTHORIZATION [dbo];
+

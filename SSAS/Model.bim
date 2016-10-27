@@ -1,0 +1,852 @@
+{
+  "name": "SemanticModel",
+  "id": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-AU",
+    "dataSources": [
+      {
+        "name": "PlayByPlay",
+        "connectionString": "Provider=SQLNCLI11;Data Source=BIZDATA-L053\\LOCAL2016DEV;Initial Catalog=PlayByPlay;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Pass Outcome",
+        "columns": [
+          {
+            "name": "PassOutcomeSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PassOutcomeSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Pass Outcome",
+            "dataType": "string",
+            "sourceColumn": "PassOutcome",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Pass Outcome",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[PassOutcome].* FROM [Dim].[PassOutcome] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[PassOutcome].* FROM [Dim].[PassOutcome] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PassOutcome"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Passer Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Passer Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Passer",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Play Type",
+        "columns": [
+          {
+            "name": "PlayTypeSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayTypeSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Play Type",
+            "dataType": "string",
+            "sourceColumn": "PlayType",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Play Type",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[PlayType].* FROM [Dim].[PlayType] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[PlayType].* FROM [Dim].[PlayType] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PlayType"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Return Result",
+        "columns": [
+          {
+            "name": "ReturnResultSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReturnResultSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Return Result",
+            "dataType": "string",
+            "sourceColumn": "ReturnResult",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Return Result",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[ReturnResult].* FROM [Dim].[ReturnResult] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[ReturnResult].* FROM [Dim].[ReturnResult] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "ReturnResult"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Offensive Team",
+        "columns": [
+          {
+            "name": "TeamSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TeamSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Offensive Team",
+            "dataType": "string",
+            "sourceColumn": "TeamName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Offensive Team",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Team].* FROM [Dim].[Team] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Team].* FROM [Dim].[Team] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Team"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Play By Play",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "GameID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "GameID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CalendarSkey",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CalendarSkey",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PasserSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PasserSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RusherSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "RusherSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ReceiverSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReceiverSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Tackler1Skey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Tackler1Skey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Tackler2Skey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Tackler2Skey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ReturnerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReturnerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BlockingPlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BlockingPlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PenalizedPlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PenalizedPlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PassOutcomeSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PassOutcomeSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ReturnResultSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReturnResultSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OffensiveTeamSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "OffensiveTeamSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DefensiveTeamSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DefensiveTeamSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PlayTypeSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayTypeSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "YardsGained",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "YardsGained",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Touchdown",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Touchdown",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PassAttempt",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PassAttempt",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "RushAttempt",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "RushAttempt",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Reception",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Reception",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Sack",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Sack",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Play By Play",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Fact].[PlayByPlay].* FROM [Fact].[PlayByPlay] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Yards Gained",
+            "expression": "SUM([YardsGained])",
+            "formatString": "0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Fact].[PlayByPlay].* FROM [Fact].[PlayByPlay] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PlayByPlay"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Fact"
+          }
+        ]
+      },
+      {
+        "name": "Defensive Team",
+        "columns": [
+          {
+            "name": "TeamSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TeamSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Defensive Team",
+            "dataType": "string",
+            "sourceColumn": "TeamName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Defensive Team",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Team].* FROM [Dim].[Team] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Team].* FROM [Dim].[Team] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Team"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Rusher Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Rusher Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Rusher",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Receiver Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Receiver Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Receiver",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Tackler 1 Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Tackler 1 Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tackler 1",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Tackler 2 Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Tackler 2 Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Tackler 2",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Returner Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Returner Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Returner",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Blocking Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Blocking Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Blocking Player",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      },
+      {
+        "name": "Penalized Player",
+        "columns": [
+          {
+            "name": "PlayerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PlayerSkey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Penalized Name",
+            "dataType": "string",
+            "sourceColumn": "PlayerName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Penalized Player",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Dim].[Player].* FROM [Dim].[Player] ",
+              "dataSource": "PlayByPlay"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Dim].[Player].* FROM [Dim].[Player] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Player"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Dim"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b9406441-9379-4404-98f6-e4b43d964d8a",
+        "fromTable": "Play By Play",
+        "fromColumn": "PasserSkey",
+        "toTable": "Passer Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "8ae84d74-556f-4505-8fd4-2c007a7251e7",
+        "fromTable": "Play By Play",
+        "fromColumn": "RusherSkey",
+        "toTable": "Rusher Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "60256ea0-c5b2-4253-8ce1-b194f1c9e023",
+        "fromTable": "Play By Play",
+        "fromColumn": "ReceiverSkey",
+        "toTable": "Receiver Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "f361f7d9-af0c-454f-9ee0-ed26209e2c1b",
+        "fromTable": "Play By Play",
+        "fromColumn": "Tackler1Skey",
+        "toTable": "Tackler 1 Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "6b0ef37a-af9b-4ac5-9e83-326b13bb1c44",
+        "fromTable": "Play By Play",
+        "fromColumn": "Tackler2Skey",
+        "toTable": "Tackler 2 Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "d277b24c-984b-47ca-9b18-ed5c157974d6",
+        "fromTable": "Play By Play",
+        "fromColumn": "ReturnerSkey",
+        "toTable": "Returner Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "023db26b-a2a3-4d21-b6cb-566e4f9b8729",
+        "fromTable": "Play By Play",
+        "fromColumn": "BlockingPlayerSkey",
+        "toTable": "Blocking Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "3da1dd78-4d8b-4ebe-94e7-11060e4788f6",
+        "fromTable": "Play By Play",
+        "fromColumn": "PenalizedPlayerSkey",
+        "toTable": "Penalized Player",
+        "toColumn": "PlayerSkey"
+      },
+      {
+        "name": "a6d8857e-363f-400a-b22b-150582457dbb",
+        "fromTable": "Play By Play",
+        "fromColumn": "PassOutcomeSkey",
+        "toTable": "Pass Outcome",
+        "toColumn": "PassOutcomeSkey"
+      },
+      {
+        "name": "10a677e0-f6d8-43cd-9776-a13cd7ce3727",
+        "fromTable": "Play By Play",
+        "fromColumn": "ReturnResultSkey",
+        "toTable": "Return Result",
+        "toColumn": "ReturnResultSkey"
+      },
+      {
+        "name": "90993158-2798-43e3-b5ba-2d364daafa20",
+        "fromTable": "Play By Play",
+        "fromColumn": "OffensiveTeamSkey",
+        "toTable": "Offensive Team",
+        "toColumn": "TeamSkey"
+      },
+      {
+        "name": "5f80d530-b4b4-47b9-b14f-ec0756489cb6",
+        "fromTable": "Play By Play",
+        "fromColumn": "DefensiveTeamSkey",
+        "toTable": "Defensive Team",
+        "toColumn": "TeamSkey"
+      },
+      {
+        "name": "f85b365b-456d-4830-80b0-4bb2e514aa41",
+        "fromTable": "Play By Play",
+        "fromColumn": "PlayTypeSkey",
+        "toTable": "Play Type",
+        "toColumn": "PlayTypeSkey"
+      }
+    ]
+  }
+}

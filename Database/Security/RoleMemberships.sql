@@ -1,0 +1,6 @@
+﻿ALTER ROLE [db_owner] ADD MEMBER [BIZDATA-L053\svc_2016_as];
+
+
+GO
+ALTER ROLE [db_owner] ADD MEMBER [BIZDATA-L053\svc_2016_dg];
+
